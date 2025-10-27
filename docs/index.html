@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-scrolling">
+  <div id="toast-container"></div>
+  <div class="screen">
+    <div class="top-panel">
+      <!-- <div class="status-header">&lt;&lt;STATUS&gt;&gt;</div> -->
+      <div class="info" id="info-box">
+        Loading...
+      </div>
+    </div>
+
+    <div class="bottom-panel">
+      <div class="left" id="stats-box">
+        <!-- Stats will be filled in -->
+      </div>
+      <div class="right">
+        <img id="sprite" class="pokemon-sprite">
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="prev">← Prev</button>
+    <input type="text" id="search" placeholder="Search by name or number" />
+    <button id="next">Next →</button>
+    <button id="random">Random</button>
+  </div>
+
+  <div class="bottom-bar">
+    <button id="load-all-mons">Preload Pokédex Data</button>
+    <button id="toggle-bg">Toggle BG Scroll</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+
+  <script src="pokedex.js"></script>
+</body>
+</html>
+
