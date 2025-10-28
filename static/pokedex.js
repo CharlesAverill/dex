@@ -199,6 +199,7 @@ async function loadPokemon(id) {
     spriteImg.onclick = () => {
       spriteState = (spriteState + 1) % spriteVariants.length;
       updateSprite();
+      if (lastMouseEvent) spriteImg.dispatchEvent(new MouseEvent("mousemove", lastMouseEvent));
     };
 
     updateSprite();
