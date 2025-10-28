@@ -374,6 +374,8 @@ document.getElementById('shiny-toggle').addEventListener("click", () => {
 let genInput = document.getElementById('gen-input');
 genInput.addEventListener("change", () => {
   spriteset = genInput.value;
+  document.getElementById('shiny-toggle').disabled = spriteset == 'default-ani' ? 'disabled' : '';
+  console.log(document.getElementById('shiny-toggle').disabled);
   globalupdatesprite();
 });
 
