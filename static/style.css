@@ -63,7 +63,8 @@ body {
   flex: 1;
   display: flex;
   padding: 16px;
-  overflow-y: auto; 
+  overflow-y: auto;
+  border-bottom: 2px solid #333;
 }
 
 .left {
@@ -115,6 +116,7 @@ body {
 .controls {
   text-align: center;
   margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 button {
@@ -332,6 +334,7 @@ button:disabled {
   .screen {
     width: 90%;
     margin: 20px auto;
+    flex-direction: column-reverse;
   }
   .bottom-panel {
     flex-direction: column;
@@ -354,6 +357,10 @@ button:disabled {
   }
   .info {
     align-self: flex-start;
+  }
+  .controls {
+    border-bottom: 2px solid #333;
+    padding-bottom: 16px;
   }
 }
 
