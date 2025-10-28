@@ -42,6 +42,10 @@ body {
   padding: 16px;
 }
 
+#stats-box > p {
+  text-align: center;
+}
+
 .status-header {
   text-align: right;
   font-family: monospace;
@@ -122,8 +126,13 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:not(:disabled):hover {
   background: #444;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default !important;
 }
 
 #search {
@@ -180,7 +189,6 @@ button:hover {
   padding: 8px 14px;
   margin-bottom: 10px;
   border-radius: 6px;
-  font-family: "PokemonBW", sans-serif;
   font-size: 14px;
   opacity: 0;
   transform: translateX(100%);
@@ -191,3 +199,97 @@ button:hover {
   opacity: 1;
   transform: translateX(0);
 }
+
+.stats-table {
+  width: 60%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.stats-table td {
+  padding: 3px 6px;
+  vertical-align: middle;
+}
+
+.stat-name {
+  text-align: left;
+  font-weight: bold;
+  width: 100px;
+}
+
+.stat-bar {
+  width: 180px; /* matches max bar width in JS */
+}
+
+.bar-bg {
+  border-radius: 4px;
+  height: 8px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+.stat-value {
+  text-align: right;
+  width: 40px;
+  font-weight: bold;
+}
+
+.ability {
+  position: relative;
+  cursor: default;
+  text-decoration: underline dotted;
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%; /* appear above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  z-index: 1000;
+  pointer-events: none; /* allow hover on ability without blocking */
+  opacity: 0;
+  transition: opacity 0.15s;
+  width: max-content;
+}
+
+.ability:hover .tooltip {
+  opacity: 1;
+}
+
+.overworld-sprite {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer;
+  image-rendering: pixelated;
+  width: 25%;
+}
+
+#zoom-popup {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+#zoom-lens {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0.2);
+  image-rendering: pixelated;
+}
+

@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Pokédex</title>
-  <link rel="stylesheet" href="/dex/static/style.css">
+  <link rel="stylesheet" href="/dex/static/style.css?v=1">
 </head>
 <body class="bg-scrolling">
   <div id="toast-container"></div>
   <div class="screen">
     <div class="top-panel">
       <!-- <div class="status-header">&lt;&lt;STATUS&gt;&gt;</div> -->
-      <div class="info" id="info-box">
-        Loading...
+      <div class="left" id="stats-box">
+        <!-- Stats will be filled in -->
       </div>
     </div>
 
     <div class="bottom-panel">
-      <div class="left" id="stats-box">
-        <!-- Stats will be filled in -->
+      <div class="info left" id="info-box">
+        Loading...
       </div>
       <div class="right">
         <img id="sprite" class="pokemon-sprite">
@@ -39,7 +39,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
 
-  <script src="/dex/static/pokedex.js"></script>
+  <script src="/dex/static/pokedex.js?v=1"></script>
 </body>
 </html>
 
