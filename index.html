@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Pokédex</title>
-  <link rel="stylesheet" href="/dex/static/style.css?v=1">
+  <link rel="stylesheet" href="/dex/static/style.css?v=2">
 
   <meta name="title" content="Pokédex">
 
@@ -52,14 +52,79 @@
     <button id="random">Random</button>
   </div>
 
-  <div class="bottom-bar">
+  <div class="bottom-bar hidden">
     <button id="load-all-mons">Preload Pokédex Data</button>
     <button id="toggle-bg">Toggle BG Scroll</button>
+    <button id="shiny-toggle">Toggle Shinies</button>
+    &nbsp;
+    <input id="gen-input" list="gen-list" placeholder="Select sprite set" />
+    <datalist id="gen-list">
+      <option value="default-ani">
+      <option value="afd">
+      <option value="afd-back">
+      <option value="afd-back-shiny">
+      <option value="afd-shiny">
+      <option value="ani">
+      <option value="ani-back">
+      <option value="ani-back-shiny">
+      <option value="ani-shiny">
+      <option value="bwicons">
+      <option value="categories">
+      <option value="dex">
+      <option value="dex-shiny">
+      <option value="digimon">
+      <option value="digimon-backup-2021-11-22">
+      <option value="gen1">
+      <option value="gen1-back">
+      <option value="gen1rb">
+      <option value="gen1rg">
+      <option value="gen1rgb-back">
+      <option value="gen2">
+      <option value="gen2-back">
+      <option value="gen2-back-shiny">
+      <option value="gen2-shiny">
+      <option value="gen2g">
+      <option value="gen2s">
+      <option value="gen3">
+      <option value="gen3-2">
+      <option value="gen3-back">
+      <option value="gen3-back-shiny">
+      <option value="gen3-shiny">
+      <option value="gen3frlg">
+      <option value="gen3rs">
+      <option value="gen3rs-shiny">
+      <option value="gen4">
+      <option value="gen4-back">
+      <option value="gen4-back-shiny">
+      <option value="gen4-shiny">
+      <option value="gen4dp">
+      <option value="gen4dp-2">
+      <option value="gen4dp-2-shiny">
+      <option value="gen4dp-shiny">
+      <option value="gen5">
+      <option value="gen5-back">
+      <option value="gen5-back-shiny">
+      <option value="gen5-shiny">
+      <option value="gen5ani">
+      <option value="gen5ani-back">
+      <option value="gen5ani-back-shiny">
+      <option value="gen5ani-shiny">
+      <option value="gen5icons">
+      <option value="gen6">
+      <option value="gen6-back">
+      <option value="gen6bgs">
+      <option value="home">
+      <option value="home-centered">
+      <option value="home-centered-shiny">
+      <option value="home-shiny">
+    </datalist>
   </div>
+
+  <button id="bottom-bar-toggle" class="bottom-bar-toggle">▲</button>
 
   <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
 
-  <script src="/dex/static/pokedex.js?v=1"></script>
+  <script src="/dex/static/pokedex.js?v=2"></script>
 </body>
 </html>
 

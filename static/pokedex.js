@@ -70,6 +70,11 @@ function removeCommonPrefix(strings) {
   return strings.map(s => s.slice(prefix.length));
 }
 
+let spriteState = 0;
+let generation = 0;
+let spriteset = "default-ani";
+let shiny = false;
+var globalupdatesprite;
 async function loadPokemon(id) {
   try {
     let data;
@@ -173,8 +178,31 @@ async function loadPokemon(id) {
       });
     });
 
-    spriteImg.src = `/dex/static/assets/sprites/${dex}.gif`;
+    spriteImg.src = '';
     spriteImg.onerror = () => spriteImg.src = "";
+
+    // ===== MAIN SPRITE VIEWER =====
+    const spriteVariants = [
+      "",            // front
+      "-back",       // back
+    ];
+
+    function updateSprite() {
+      const variant = spriteset + spriteVariants[spriteState];
+      const filetype = spriteset.includes('ani') ? 'gif' : 'png';
+      spriteImg.src = variant.startsWith("default-ani") ? `/dex/static/assets/sprites/${dex}.${filetype}` : 
+        `https://play.pokemonshowdown.com/sprites/${variant}${shiny ? '-shiny' : ''}/${data.name.toLowerCase()}.${filetype}`;
+      spriteImg.onerror = () => { spriteImg.src = `/dex/static/assets/sprites/${dex}.${filetype}`; spriteImg.style.width = "100%" };
+      spriteImg.style.width = spriteImg.src.endsWith(`/dex/static/assets/sprites/${dex}.${filetype}`) ? "100%" : "50%";
+    }
+
+    spriteImg.onclick = () => {
+      spriteState = (spriteState + 1) % spriteVariants.length;
+      updateSprite();
+    };
+
+    updateSprite();
+    globalupdatesprite = updateSprite;
 
     // ===== OVERWORLD SPRITE =====
     const overworldContainer = spriteImg.parentElement;
@@ -338,6 +366,24 @@ spriteImg.addEventListener("mouseleave", () => {
   zoomPopup.style.display = "none";
 });
 
+document.getElementById('shiny-toggle').addEventListener("click", () => {
+  shiny = !shiny;
+  globalupdatesprite();
+});
+
+let genInput = document.getElementById('gen-input');
+genInput.addEventListener("change", () => {
+  spriteset = genInput.value;
+  globalupdatesprite();
+});
+
+const bottomBar = document.querySelector(".bottom-bar");
+const bottomToggle = document.getElementById("bottom-bar-toggle");
+
+bottomToggle.addEventListener("click", () => {
+  bottomBar.classList.toggle("hidden");
+  bottomToggle.classList.toggle("rotate");
+});
 
 
 loadPokemon(currentId);
